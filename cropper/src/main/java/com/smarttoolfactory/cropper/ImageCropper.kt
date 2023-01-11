@@ -167,7 +167,6 @@ fun ImageCropper(
             imageHeightPx = imageHeightPx,
             handleSize = cropProperties.handleSize,
             overlayRect = cropState.overlayRect,
-            cropType = cropType,
             cropOutline = cropOutline,
             cropStyle = cropStyle,
             transparentColor = transparentColor
@@ -186,7 +185,6 @@ private fun ImageCropper(
     imageWidthPx: Int,
     imageHeightPx: Int,
     handleSize: Float,
-    cropType: CropType,
     cropOutline: CropOutline,
     cropStyle: CropStyle,
     overlayRect: Rect,
@@ -210,7 +208,6 @@ private fun ImageCropper(
                 containerHeight = containerHeight,
                 imageWidthPx = imageWidthPx,
                 imageHeightPx = imageHeightPx,
-                cropType = cropType,
                 cropOutline = cropOutline,
                 handleSize = handleSize,
                 cropStyle = cropStyle,
@@ -246,7 +243,6 @@ private fun ImageCropperImpl(
     containerHeight: Dp,
     imageWidthPx: Int,
     imageHeightPx: Int,
-    cropType: CropType,
     cropOutline: CropOutline,
     handleSize: Float,
     cropStyle: CropStyle,
@@ -269,7 +265,7 @@ private fun ImageCropperImpl(
         val drawGrid = cropStyle.drawGrid
         val overlayColor = cropStyle.overlayColor
         val handleColor = cropStyle.handleColor
-        val drawHandles = cropType == CropType.Dynamic
+        val drawHandles = cropStyle.drawHandles
         val strokeWidth = cropStyle.strokeWidth
         
         DrawingOverlay(
